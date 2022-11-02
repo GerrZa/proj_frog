@@ -1,0 +1,534 @@
+[gd_scene load_steps=50 format=2]
+
+[ext_resource path="res://scr/level/option/option_buttonindicator.gd" type="Script" id=1]
+[ext_resource path="res://asset/ui/option/option_screen_ref.png" type="Texture" id=2]
+[ext_resource path="res://asset/ui/option/spr_eyereveal_v1.png" type="Texture" id=3]
+[ext_resource path="res://asset/ui/option/sound_button.png" type="Texture" id=4]
+[ext_resource path="res://asset/ui/option/music_button.png" type="Texture" id=5]
+[ext_resource path="res://scr/level/option/music.gd" type="Script" id=6]
+[ext_resource path="res://scr/level/option/sfx.gd" type="Script" id=7]
+[ext_resource path="res://asset/ui/option/option_select_border.png" type="Texture" id=8]
+[ext_resource path="res://asset/ui/option/bird_mouth.png" type="Texture" id=9]
+[ext_resource path="res://asset/ui/option/option_eye_blink.png" type="Texture" id=10]
+[ext_resource path="res://asset/ui/option/option_back_selected_border.png" type="Texture" id=11]
+[ext_resource path="res://scr/level/option/back_button.gd" type="Script" id=12]
+[ext_resource path="res://asset/ui/option/option_back.png" type="Texture" id=13]
+[ext_resource path="res://asset/fx/sound_fx/gameover/sfx_gameover_v2.wav" type="AudioStream" id=14]
+[ext_resource path="res://asset/fx/sound_fx/menu_sfx/option_sfx_switch_v1.wav" type="AudioStream" id=15]
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("blinker:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../sfx/blinker2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "blink"
+length = 0.3
+step = 0.03
+tracks/0/type = "value"
+tracks/0/path = NodePath("../sfx/blinker2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21, 0.24, 0.27 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../sfx")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.12 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "switch"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("blinker:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "blink"
+length = 0.3
+step = 0.03
+tracks/0/type = "value"
+tracks/0/path = NodePath("blinker:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21, 0.24, 0.27 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.12 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "switch"
+} ]
+}
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 13 )
+region = Rect2( 76, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 13 )
+region = Rect2( 152, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 13 )
+region = Rect2( 228, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 13 )
+region = Rect2( 304, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 13 )
+region = Rect2( 380, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 13 )
+region = Rect2( 456, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 13 )
+region = Rect2( 532, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 13 )
+region = Rect2( 608, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 13 )
+region = Rect2( 684, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 13 )
+region = Rect2( 760, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 13 )
+region = Rect2( 836, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 13 )
+region = Rect2( 912, 0, 76, 35 )
+
+[sub_resource type="SpriteFrames" id=36]
+animations = [ {
+"frames": [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
+"loop": true,
+"name": "default",
+"speed": 13.0
+} ]
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 11 )
+region = Rect2( 0, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 11 )
+region = Rect2( 76, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 11 )
+region = Rect2( 152, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 11 )
+region = Rect2( 228, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 11 )
+region = Rect2( 304, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 11 )
+region = Rect2( 380, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 11 )
+region = Rect2( 456, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 11 )
+region = Rect2( 532, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 11 )
+region = Rect2( 608, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 11 )
+region = Rect2( 684, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 11 )
+region = Rect2( 760, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 11 )
+region = Rect2( 836, 0, 76, 35 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 11 )
+region = Rect2( 912, 0, 76, 35 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
+"loop": true,
+"name": "back_arrow",
+"speed": 13.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../button_indicator/sfx/sfx_spr:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 18 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../button_indicator/music/music_spr:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 18 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../mouth:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 180, 149 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../button_indicator/indicator:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "start_anim"
+length = 0.7
+step = 0.07
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.28, 0.35, 0.42, 0.49, 0.56, 0.63 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../mouth:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.28, 0.35, 0.42, 0.49, 0.56, 0.63 ),
+"transitions": PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ),
+"update": 0,
+"values": [ Vector2( 180, 149 ), Vector2( 180, 149 ), Vector2( 180, 140 ), Vector2( 180, 136 ), Vector2( 180, 133 ), Vector2( 180, 132 ), Vector2( 180, 131 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../button_indicator/sfx/sfx_spr:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.28, 0.35, 0.42, 0.49, 0.56, 0.63 ),
+"transitions": PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ),
+"update": 0,
+"values": [ Vector2( 0, 18 ), Vector2( 0, 18 ), Vector2( 0, 9 ), Vector2( 0, 5 ), Vector2( 0, 2 ), Vector2( 0, 1 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../button_indicator/music/music_spr:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.28, 0.35, 0.42, 0.49, 0.56, 0.63 ),
+"transitions": PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ),
+"update": 0,
+"values": [ Vector2( 0, 18 ), Vector2( 0, 18 ), Vector2( 0, 9 ), Vector2( 0, 5 ), Vector2( 0, 2 ), Vector2( 0, 1 ), Vector2( 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../button_indicator/indicator:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("../../reveal_sfx")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.14 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="button_indicator" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+start_button = NodePath("sfx")
+indicator_nodepath = NodePath("indicator")
+
+[node name="sfx" type="AnimatedSprite" parent="CanvasLayer/button_indicator"]
+position = Vector2( 142, 78 )
+script = ExtResource( 7 )
+right_neighbor = NodePath("../music")
+up_neighbor = NodePath("../back")
+
+[node name="sfx_spr" type="Sprite" parent="CanvasLayer/button_indicator/sfx"]
+position = Vector2( 0, 18 )
+texture = ExtResource( 4 )
+centered = false
+hframes = 2
+
+[node name="blinker2" type="Sprite" parent="CanvasLayer/button_indicator/sfx"]
+texture = ExtResource( 10 )
+centered = false
+flip_h = true
+hframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/button_indicator/sfx/blinker2"]
+root_node = NodePath("../../../music")
+anims/RESET = SubResource( 7 )
+anims/blink = SubResource( 8 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/button_indicator/sfx"]
+stream = ExtResource( 15 )
+volume_db = -4.228
+bus = "Sfx"
+
+[node name="music" type="AnimatedSprite" parent="CanvasLayer/button_indicator"]
+position = Vector2( 216, 78 )
+script = ExtResource( 6 )
+left_neighbor = NodePath("../sfx")
+up_neighbor = NodePath("../back")
+
+[node name="music_spr" type="Sprite" parent="CanvasLayer/button_indicator/music"]
+position = Vector2( 0, 18 )
+texture = ExtResource( 5 )
+centered = false
+hframes = 2
+
+[node name="blinker" type="Sprite" parent="CanvasLayer/button_indicator/music"]
+texture = ExtResource( 10 )
+centered = false
+hframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/button_indicator/music/blinker"]
+root_node = NodePath("../..")
+anims/RESET = SubResource( 6 )
+anims/blink = SubResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/button_indicator/music"]
+stream = ExtResource( 15 )
+volume_db = -4.228
+bus = "Sfx"
+
+[node name="back" type="AnimatedSprite" parent="CanvasLayer/button_indicator"]
+position = Vector2( 161, 13 )
+frames = SubResource( 36 )
+centered = false
+script = ExtResource( 12 )
+down_neighbor = NodePath("../sfx")
+
+[node name="indicator" type="AnimatedSprite" parent="CanvasLayer/button_indicator"]
+visible = false
+position = Vector2( 142, 78 )
+frames = SubResource( 5 )
+centered = false
+offset = Vector2( -3, -3 )
+
+[node name="eyereveal" type="Sprite" parent="CanvasLayer"]
+z_index = 1
+texture = ExtResource( 3 )
+centered = false
+hframes = 7
+
+[node name="mouth" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 180, 149 )
+z_index = -4
+texture = ExtResource( 9 )
+centered = false
+
+[node name="eyereveal_anim" type="AnimationPlayer" parent="CanvasLayer"]
+unique_name_in_owner = true
+root_node = NodePath("../eyereveal")
+autoplay = "start_anim"
+anims/RESET = SubResource( 3 )
+anims/start_anim = SubResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 398.0
+margin_bottom = 224.0
+color = Color( 0.00392157, 0.00784314, 0.054902, 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.266667 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="reveal_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -8.0
+bus = "Sfx"
+
+[node name="switch_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -8.0
+bus = "Sfx"
